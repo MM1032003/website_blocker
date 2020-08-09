@@ -21,16 +21,9 @@ try:
 except:
     print("Enter Integer Number Please")
     exit()
-    
+
 start_time      = dt.now()
 end_time        = start_time + td(hours=hours)
-
-def get_blocked_websites_string():
-    full_string = '\n'
-    for website in websites_list:
-        full_string += "{} {}\n".format(redirect, website)
-
-    return full_string
 
 while True:
     if start_time <= dt.now() < end_time:
@@ -45,7 +38,6 @@ while True:
                 else:
                     f.write("\n{} {}".format(redirect, website))
     else:
-        blocked_websites_length = len(get_blocked_websites_string())
         with open(hosts_path, 'r+') as f:
             content = f.readlines()
             f.seek(0)
